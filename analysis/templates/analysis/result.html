@@ -1,0 +1,97 @@
+{% extends "intro/home.html" %}
+
+{% block content %}
+
+<!-- Main -->
+  <section id="main" >
+    <div class="inner">
+      <header class="major special">
+        <h1>Result</h1>
+      </header>
+
+
+    <div class="field">
+							<div><b>Group A: <i>{{ gidA }}</i></b><br>
+              Gene Count: {{ a }}</div><br><br>
+
+              <div><b>Group B: <i>{{ gidB }}</i></b><br>
+              Gene Count: {{ b }}</div><br><br>
+		</div>
+    <div class="table-wrapper">
+      <h2 style="color:red;">Database available: GO, KEGG, Pfam</h2>
+
+      <h3>Database: Gene Ontology</h3>
+            <table>
+               <tr>
+                   <th>GO Annotation</th>
+                   <th>Counts in Total</th>
+                   <th>Counts in Smaller Gene Set</th>
+                   <th>Chi-Squared Test Value</th>
+                   <th>p Value</th>
+                   <th>After Correction</th>
+               </tr>
+              {% load lookup %}
+              {% for i in matchAnno %}
+              <tr>
+                  <th> {{ matchAnno|lookup:forloop.counter0 }} </th>
+                  <td> {{ matchAnnoTotalCount|lookup:forloop.counter0 }} </td>
+                  <td> {{ matchAnnoCount|lookup:forloop.counter0 }} </td>
+                  <td> {{ chiValue|lookup:forloop.counter0 }} </td>
+                  <td> {{ pValue|lookup:forloop.counter0 }} </td>
+                  <td> {{ correction|lookup:forloop.counter0 }} </td>
+              </tr>
+              {% endfor %}
+           </table>
+
+      <h3>Database: KEGG</h3>
+            <table>
+               <tr>
+                   <th>KEGG Annotation</th>
+                   <th>Counts in Total</th>
+                   <th>Counts in Smaller Gene Set</th>
+                   <th>Chi-Squared Test Value</th>
+                   <th>p Value</th>
+                   <th>After Correction</th>
+               </tr>
+              {% load lookup %}
+              {% for j in matchKEGGAnno %}
+              <tr>
+                  <th> {{ matchKEGGAnno|lookup:forloop.counter0 }} </th>
+                  <td> {{ matchKEGGAnnoTotalCount|lookup:forloop.counter0 }} </td>
+                  <td> {{ matchKEGGAnnoCount|lookup:forloop.counter0 }} </td>
+                  <td> {{ KEGGchiValue|lookup:forloop.counter0 }} </td>
+                  <td> {{ KEGGpValue|lookup:forloop.counter0 }} </td>
+                  <td> {{ KEGGcorrection|lookup:forloop.counter0 }} </td>
+              </tr>
+              {% endfor %}
+           </table>
+
+     <h3>Database: Pfam</h3>
+           <table>
+              <tr>
+                  <th>Pfam Annotation</th>
+                  <th>Counts in Total</th>
+                  <th>Counts in Smaller Gene Set</th>
+                  <th>Chi-Squared Test Value</th>
+                  <th>p Value</th>
+                  <th>After Correction</th>
+              </tr>
+             {% load lookup %}
+             {% for k in matchPfamAnno %}
+             <tr>
+                 <th> {{ matchPfamAnno|lookup:forloop.counter0 }} </th>
+                 <td> {{ matchPfamAnnoTotalCount|lookup:forloop.counter0 }} </td>
+                 <td> {{ matchPfamAnnoCount|lookup:forloop.counter0 }} </td>
+                 <td> {{ PfamchiValue|lookup:forloop.counter0 }} </td>
+                 <td> {{ PfampValue|lookup:forloop.counter0 }} </td>
+                 <td> {{ Pfamcorrection|lookup:forloop.counter0 }} </td>
+             </tr>
+             {% endfor %}
+          </table>
+
+
+    </div>
+
+  </section>
+
+{% endblock %}

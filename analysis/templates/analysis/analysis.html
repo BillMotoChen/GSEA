@@ -1,0 +1,57 @@
+{% extends "intro/home.html" %}
+
+{% block content %}
+
+<!-- Main -->
+  <section id="main" >
+    <div class="inner">
+      <header class="major special">
+        <h1>Analysis</h1>
+        <p>Enrichment of each annotations from different databases can be tested here.</p>
+      </header>
+
+    <form action="{% url 'result' %}" method="post">
+      {% csrf_token %}
+      <div class="field">
+  							<label for="geneid">Input sequence (Amino acid or Nucleotide) or Gene ID </label>
+                <p>Make a new line for each gene id</p>
+                <div>
+                  <div class="row">
+                    <div class="col">
+                    <b>Gene ID list of the complete genome</b>
+                    <textarea name="compareA" id="compareA" rows="12"></textarea>
+                    </div>
+
+                    <div class="col">
+                    <b>Gene ID list of which to be analyzed</b>
+                    <textarea name="compareB" id="compareA" rows="12"></textarea>
+                    </div>
+                  </div>
+                <div class="container">
+
+
+                </div>
+                <br>
+                <!-- <div class="4u$">
+										<div class="select-wrapper">
+											<select name="correction" id="correction">
+												<option value="0">- Correction Method -</option>
+												<option value="1">Bonferroni Correction</option>
+												<option value="2">Benjamini-Hochberg (FDR) Correction</option>
+												<option value="3">Method C</option>
+												<option value="4">Method D</option>
+											</select>
+										</div>
+									</div> -->
+
+  		</div>
+      <div>
+          <button onclick="detailinfo();" style="font-size: 14pt; width: 200px; margin-right: 30px" type="button" class="btn btn-info">Detailed Info</button>
+          <button onclick="jsonfile();" style="font-size: 14pt; width: 200px; margin-right: 30px" type="button" class="btn btn-warning">Json file</button>
+          <button style="font-size: 14pt; width: 200px;"  type="submit" class="btn btn-success">Submit</button>
+      </div>
+    </form>
+
+  </section>
+
+{% endblock %}

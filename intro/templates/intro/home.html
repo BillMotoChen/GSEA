@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta charset="utf-8" />
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static 'intro/css/bootstrap.min.css' %}" type = "text/css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="{% static 'intro/css/main.css' %}" type = "text/css"/>
+
+</head>
+<body>
+  <!-- Header -->
+			<header id="header">
+				<div class="inner">
+					<h2 class="logo">G-Links Based Online Application</h2>
+					<nav id="nav">
+						<a href="/intro">Home</a>
+						<a href="/analysis/">Analysis</a>
+						<a href="/intro/algorithm">Algorithm</a>
+					</nav>
+				</div>
+			</header>
+			<!-- <a href="#menu" class="navPanelToggle"><span class="fa fa-bars"></span></a> -->
+          {% block content %}
+          {% endblock %}
+
+		<!-- Footer -->
+			<section id="footer">
+				<div class="inner">
+					<header>
+						<h2>Contact</h2>
+					</header>
+					<form>
+						<h4>Email: twbill@sfc.keio.ac.jp</h4>
+            <h4>Institute for Advanced Biosciences, Keio University, Tsuruoka 997-0035, Japan and
+Graduated School of Media and Governance, Keio University, Fujisawa 252-0882, Japan.
+</h4>
+					</form>
+					<div class="copyright">
+						&copy; Untitled Design: <a href="https://templated.co/">TEMPLATED</a>. Images <a href="https://unsplash.com/">Unsplash</a>
+					</div>
+				</div>
+			</section>
+
+		<!-- Scripts -->
+    {% block scripts %}
+      <script src="{% static 'intro/js/jquery.min.js' %}"></script>
+      <script src="{% static 'intro/js/skel.min.js' %}"></script>
+      <script src="{% static 'intro/js/util.js' %}"></script>
+      <script src="{% static 'intro/js/main.js' %}"></script>
+      <script src="{% static 'intro/js/extra.js' %}"></script>
+    {% endblock %}
+
+	</body>
+</html>
